@@ -33,6 +33,7 @@ echo '-----> Adding vendor/bin to $PATH for future buildpacks'
 
 echo "export PATH=\"${HOME}/vendor/bin:\$PATH\"" > $BP_DIR/export
 echo "-----> $PATH: $(PATH)"
+echo "-----> $PATH: $(BP_DIR)"
 
 echo '-----> Adding $PATH to the profile'
 
