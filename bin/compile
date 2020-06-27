@@ -25,7 +25,7 @@ echo "-----> Copying to ${HOME}/vendor/bin"
 mkdir -p ${HOME}/vendor/bin
 cp thrift ${HOME}/vendor/bin/thrift
 
-chmod +x "${HOME}/vendor/bin/thrift"
+chmod a+x "${HOME}/vendor/bin/thrift"
 
 echo "-----> thrift --version: $($HOME/vendor/bin/thrift -version | indent)"
 
