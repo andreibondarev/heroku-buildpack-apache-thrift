@@ -46,7 +46,7 @@ export PATH="$PATH:${HOME}/vendor/bin"
 echo "-----> PATH: ${PATH}"
 
 echo "-----> BUILD_DIR: ${BUILD_DIR}"
-echo "-----> ls: $(ls $BUILD_DIR)"
+echo $(ls $BUILD_DIR)
 
 if [ -f $BUILD_DIR/$THRIFT_BUILD_SCRIPT ]; then
   echo "-----> Running script at $THRIFT_BUILD_SCRIPT"
