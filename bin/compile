@@ -50,7 +50,7 @@ echo $(ls $BUILD_DIR)
 
 if [ -f $BUILD_DIR/$THRIFT_BUILD_SCRIPT ]; then
   echo "-----> Running script at $THRIFT_BUILD_SCRIPT"
-  bash $BUILD_DIR/$THRIFT_BUILD_SCRIPT $THRIFT_BUILD_ARGUMENTS
+  echo $(bash $BUILD_DIR/$THRIFT_BUILD_SCRIPT $THRIFT_BUILD_ARGUMENTS)
 else
   echo '-----> Nothing specified for THRIFT_BUILD_SCRIPT'
 fi
