@@ -17,16 +17,16 @@ THRIFT_BUILD_ARGUMENTS=$(cat "${ENV_DIR}/THRIFT_BUILD_ARGUMENTS")
 
 echo "-----> Unzipping thrift-0.13.0"
 
-gunzip thrift.gz | indent
+echo "$(gunzip thrift.gz | indent)"
 
 echo "-----> Copying to ${HOME}/vendor/bin"
 
-mkdir -p ${HOME}/vendor/bin
-cp thrift ${HOME}/vendor/bin/thrift
+echo "$(mkdir -p ${HOME}/vendor/bin)"
+echo "$(cp thrift ${HOME}/vendor/bin/thrift)"
 
-chmod +x "${HOME}/vendor/bin/thrift"
+echo "$(chmod +x "${HOME}/vendor/bin/thrift")"
 
-$HOME/vendor/bin/thrift -version | indent
+echo "$($HOME/vendor/bin/thrift -version | indent)"
 
 echo '-----> Adding vendor/bin to $PATH for future buildpacks'
 
@@ -34,11 +34,14 @@ echo "export PATH=\"${HOME}/vendor/bin:\$PATH\"" > $BP_DIR/export
 
 echo '-----> Adding $PATH to the profile'
 
-PROFILE_PATH="$1/.profile.d/apache-thrift.sh"
-mkdir -p $(dirname $PROFILE_PATH)
+echo "$(PROFILE_PATH="$1/.profile.d/apache-thrift.sh")"
+echo "$(mkdir -p $(dirname $PROFILE_PATH))"
 echo 'export PATH="$PATH:${HOME}/vendor/bin"' >> $PROFILE_PATH
 
-export PATH="$PATH:${HOME}/vendor/bin"
+echo "$(export PATH="$PATH:${HOME}/vendor/bin")"
+
+echo $BUILD_DIR
+echo $THRIFT_BUILD_SCRIPT
 
 if [ -f $BUILD_DIR/$THRIFT_BUILD_SCRIPT ]; then
   echo "-----> Running script at $THRIFT_BUILD_SCRIPT"
