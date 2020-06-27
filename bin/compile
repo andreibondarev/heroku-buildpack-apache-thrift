@@ -30,10 +30,9 @@ chmod +x "${HOME}/vendor/bin/thrift"
 echo "-----> thrift --version: $($HOME/vendor/bin/thrift -version | indent)"
 
 echo '-----> Adding vendor/bin to $PATH for future buildpacks'
+echo "-----> $BP_DIR: $(BP_DIR)"
 
 echo "export PATH=\"${HOME}/vendor/bin:\$PATH\"" > $BP_DIR/export
-echo "-----> $PATH: $(PATH)"
-echo "-----> $BP_DIR: $(BP_DIR)"
 
 echo '-----> Adding $PATH to the profile'
 
@@ -41,9 +40,10 @@ PROFILE_PATH="$1/.profile.d/apache-thrift.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:${HOME}/vendor/bin"' >> $PROFILE_PATH
 
-echo "-----> PROFILE_PATH: ${PROFILE_PATH}"
+echo "-----> $PROFILE_PATH: ${PROFILE_PATH}"
 
 export PATH="$PATH:${HOME}/vendor/bin"
+echo "-----> $PATH: $(PATH)"
 
 if [ -f $BUILD_DIR/$THRIFT_BUILD_SCRIPT ]; then
   echo "-----> Running script at $THRIFT_BUILD_SCRIPT"
